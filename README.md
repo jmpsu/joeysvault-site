@@ -9,8 +9,8 @@ Both are served by one Cloudflare Worker (`src/index.js`). Media is in `public/`
 HTTP range support so video seeks correctly. `scripts/media-sizes.mjs` runs at deploy time and records
 file sizes for that.
 
-Everything else on `joeysvault.app` (the apex library and swarm app, `upload.`, `vllm.`, the API) belongs to the
-separate `flue-manager` Worker and is not in this repository.
+`joeysvault.app` (bare domain) redirects to `www`. `upload.` and `vllm.` belong to the separate `flue-manager`
+Worker and are not in this repository.
 
 ## Publishing
 

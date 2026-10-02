@@ -1,7 +1,7 @@
 // joeysvault-site: serves www.joeysvault.app and projects.joeysvault.app.
 // Page HTML is bundled from src/pages. Media is read from the assets layer (public/)
 // and re-served here with HTTP range support, which video seeking needs.
-// Everything else on joeysvault.app (upload, library, swarm, API) stays in flue-manager.
+// upload., vllm. and the API belong to the separate flue-manager Worker. The bare domain redirects to www.
 import www from "./pages/www.html";
 import projects from "./pages/projects.html";
 import SIZES from "./media-sizes.json";
@@ -64,6 +64,8 @@ async function serveMedia(request, env, url) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // The bare domain has no site of its own: send everything to www.
+    if (url.hostname === "joeysvault.app") return Response.redirect("https://www.joeysvault.app/", 301);
     if (/\.(mp4|jpg)$/.test(url.pathname)) return serveMedia(request, env, url);
     let page = SITES[url.hostname];
     // Test aliases on the workers.dev URL only.
