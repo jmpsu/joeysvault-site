@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "joeysvault-site",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "build": { "command": "node scripts/media-sizes.mjs" },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": ["/", "/__www", "/__projects", "/*.mp4", "/*.jpg"]
+  },
+  "observability": { "enabled": true }
+}
