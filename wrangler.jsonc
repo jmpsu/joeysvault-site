@@ -4,6 +4,10 @@
   "main": "src/index.js",
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
+  "routes": [
+    { "pattern": "www.joeysvault.app", "custom_domain": true },
+    { "pattern": "projects.joeysvault.app", "custom_domain": true }
+  ],
   "build": { "command": "node scripts/media-sizes.mjs" },
   "assets": {
     "directory": "./public",
