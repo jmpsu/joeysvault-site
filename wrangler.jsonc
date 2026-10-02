@@ -5,6 +5,7 @@
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
   "routes": [
+    { "pattern": "joeysvault.app", "custom_domain": true },
     { "pattern": "www.joeysvault.app", "custom_domain": true },
     { "pattern": "projects.joeysvault.app", "custom_domain": true }
   ],
